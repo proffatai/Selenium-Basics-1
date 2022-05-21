@@ -19,7 +19,7 @@ public class SeleniumRunner {
 
         WebElement searchInput= driver.findElement(By.cssSelector("[name='q']"));
         String repoName="Selenium";
-        searchInput.sendKeys(repoName); // Now we just entered iphone into the search bar
+        searchInput.sendKeys(repoName); // Now we just entered Selenium into the search bar
         searchInput.sendKeys(Keys.ENTER); // Now we pressed the enter button
 
         List<String> repos =driver.findElements(By.cssSelector(".repo-list-item")).stream()

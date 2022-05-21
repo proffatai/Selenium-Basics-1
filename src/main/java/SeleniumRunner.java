@@ -15,7 +15,7 @@ public class SeleniumRunner {
         WebDriverManager.chromedriver().setup(); // this specifies that the webdriver we will be using in our project is chromedriver
         WebDriver driver = new ChromeDriver(); // we instantiated a chromedriver, i.e we created an object of chromedriver. We could have created a firefox or edge driver
         driver.manage   ().window().maximize(); // we maximized the window of our browser
-        driver.get("https://www.github.com"); //we open the amazon homepage, which is the entry point of our program
+        driver.get("https://www.github.com"); //we open the github homepage, which is the entry point of our program
 
         WebElement searchInput= driver.findElement(By.cssSelector("[name='q']"));
         String repoName="Selenium";

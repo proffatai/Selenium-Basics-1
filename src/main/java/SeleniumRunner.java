@@ -1,4 +1,5 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -16,17 +17,22 @@ public class SeleniumRunner {
         driver.manage   ().window().maximize(); // we maximized the window of our browser
         driver.get("https://www.github.com"); //we open the amazon homepage, which is the entry point of our program
 
-        WebElement searchInput= driver.findElement(By.cssSelector("input.form-control.input-sm.header-search-input.jump-to-field.js-jump-to-field.js-site-search-focus"));
-
+        WebElement searchInput= driver.findElement(By.cssSelector("[name='q']"));
         String repoName="Selenium";
         searchInput.sendKeys(repoName); // Now we just entered iphone into the search bar
         searchInput.sendKeys(Keys.ENTER); // Now we pressed the enter button
 
-       // List<String> repos =driver.findElements(By.cssSelector(".repo-list-item")).stream()
-              //  .map(element ->element.getText().toLowerCase()).collect(Collectors.toList());
+        List<String> repos =driver.findElements(By.cssSelector(".repo-list-item")).stream()
+                .map(element ->element.getText().toLowerCase()).collect(Collectors.toList());
 
-       // Assert.assertEqual
-        //System.out.println(repos);
-        //driver.quit(); // To automatically close the window
+      // Assert.assertTrue(repos.stream().allMatch(item -> item.contains(repoName))); // this should return true since the webpage contains the word selenium
+       Assert.assertTrue(repos.stream().allMatch(item -> item.contains("invalid shot"))); // this should return false since the webpage doesn't contain the word invalid shot
+       driver.quit(); // To automatically close the window
+
+
+    //Method 2
+        List<String> expected =repos.stream().filter(item-> item.contains(repoName)).collect(Collectors.toList());
+        //let's now compare the actual result to the expected result
+        Assert.assertEquals(expected,repos);
     }
 }

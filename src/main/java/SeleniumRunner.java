@@ -20,6 +20,9 @@ public class SeleniumRunner {
         searchInput.sendKeys("iphone"); // Now we just entered iphone into the search bar
         searchInput.sendKeys(Keys.ENTER); // Now we pressed the enter button
 
+
+
+
         //driver.quit(); // To automatically close the window
     }
 }

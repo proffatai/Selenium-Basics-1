@@ -13,8 +13,7 @@ dependencies {
  implementation(
          'org.seleniumhq.selenium:selenium-java:3.141.59',
          'io.github.bonigarcia:webdrivermanager:5.1.0',
-         'junit:junit:4.12'
-
+         'org.junit.jupiter:junit-jupiter:5.8.2'
  )
 }
 

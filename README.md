@@ -1,2 +1,4 @@
 # Selenium-Basics-1
-I couldnt get this code to run 
+Junit 5 training.
+
+The code is not yet working as expected though
